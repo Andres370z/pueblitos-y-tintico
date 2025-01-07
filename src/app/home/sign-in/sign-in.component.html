@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('./assets/img/fusa2.jpeg');">
+    <div class="filter"></div>
+    <div class="container">
+      <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Espera un momento... </p></ngx-spinner>
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card-2 card-register">
+            <h3 class="title">Bienvenido</h3>
+            <form class="register-form" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+              <label>Email</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                
+
+                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" formControlName="email">
+              </div>
+
+              <label>Password</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                
+                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false" formControlName="password">
+              </div>
+              <button class="btn btn-danger btn-block btn-round" type="submit">Inicia sesión</button>
+            </form>
+            <div class="forgot">
+              <span style="color: white; margin-top: 10px;">inicia con google</span>
+              <div class="ale">
+                <div class="circle">
+                  <i class="fa fa-google" style="font-size: 30px; color: #ffffff; text-align: center;"></i>
+                  
+                </div>
+              </div>
+              <a href="#" class="btn btn-link btn-danger">Olvide mi contraseña</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer register-footer text-center">
+        <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
+      </div>
+    </div>
+  </div>
+</div>

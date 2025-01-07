@@ -11,13 +11,16 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: ComponentsComponent},
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  {
+    path: 'home', component: ComponentsComponent
+  },
   { path: 'user-profile', component: ProfileComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'nucleoicons', component: NucleoiconsComponent },
-{path: 'pages', component: HomeComponent}
+  {path: 'pages', loadChildren: ()=> import('./home/home.module').then(m => m.HomeModule)}
+  // { path: 'pages', component: HomeComponent }
 ];
 
 @NgModule({

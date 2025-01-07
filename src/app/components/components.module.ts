@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -34,9 +34,9 @@ import { HomeComponent } from '../home/home.component';
         NotificationComponent,
         NgbdModalComponent,
         NgbdModalContent,
-        HomeComponent
     ],
     entryComponents: [NgbdModalContent],
-    exports:[ ComponentsComponent ]
+    exports:[ ComponentsComponent ],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ComponentsModule { }

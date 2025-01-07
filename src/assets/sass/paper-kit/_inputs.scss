@@ -9,11 +9,15 @@
 }
 .form-control:-ms-input-placeholder{
    @include placeholder($placeholder-gray,1);
-}
+} 
 
 .form-control {
-    background-color: $white-bg;
-    border: 1px solid $medium-gray;
+    // background-color: $white-bg;
+    background-color: rgba(225, 206, 206, 0.4) !important;
+
+    ;
+    // border: 1px solid $medium-gray;
+    border: 1px solid #e6323c;
     border-radius: $border-radius-base;
     color: $font-color;
     font-size: $font-size-base;
@@ -143,7 +147,8 @@ textarea.form-control{
     }
 }
 .input-group{
-  background: $white-color;
+//   background: $white-color;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   .input-group-append .input-group-text{
     background: transparent;
     border: 1px solid #DDDDDD;

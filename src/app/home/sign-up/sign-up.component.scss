@@ -1,0 +1,27 @@
+label,
+h3 {
+    color: #ffffff !important;
+}
+.ale{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle {
+    width: 50px;
+    /* Ancho del botón */
+    height: 50px;
+    /* Alto del botón (igual al ancho para hacerlo redondo) */
+    border-radius: 50%;
+    /* Hace que el botón sea circular */
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+.circle i {
+    margin-right: 5px;
+    cursor: pointer;
+}

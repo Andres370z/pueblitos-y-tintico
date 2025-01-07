@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
@@ -11,8 +11,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
-import { HomeComponent } from './home/home.component';
-import { HomeModule } from './home/home.module';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app'; 
+import { environment } from './../environments/environment';
+import { AuthService } from './shared/services/auth.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -29,8 +32,12 @@ import { HomeModule } from './home/home.module';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    NgxSpinnerModule,
+    provideFirebaseApp(()=> initializeApp(environment.firebase)),
+    provideAuth(()=> getAuth())
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
