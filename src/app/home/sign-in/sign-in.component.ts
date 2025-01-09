@@ -22,6 +22,7 @@ export class SignInComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.spinner.hide();
     this.myForm()
     console.log('Estoy cargando el modulo de singin');
   }
@@ -35,6 +36,9 @@ export class SignInComponent implements OnInit {
     if (this.userForm.valid) {
       console.log('Formulario valido');
       this.spinner.show();
+      this.authService.login(form.email, form.password).then((res: any)=>{
+
+      })
       setTimeout(() => {
         this.spinner.hide();
       }, 5000)
@@ -49,4 +53,5 @@ export class SignInComponent implements OnInit {
     }
   }
 
+  
 }

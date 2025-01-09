@@ -190,6 +190,17 @@
     margin: 10px auto;
     /* Centramos la línea y le damos espacio vertical */
 }
+.responsive-divider-red {
+    width: 90%;
+    max-width: 1200px;
+    /* Ancho máximo para evitar que sea demasiado grande */
+    height: 2px;
+    /* Grosor de la línea */
+    background-color: #e6323c;
+    /* Color de la línea */
+    margin: 10px auto;
+    /* Centramos la línea y le damos espacio vertical */
+}
 .presentation-title{
     font-size: 8em;
     font-weight: 700;

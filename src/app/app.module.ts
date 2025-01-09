@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -16,6 +16,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from './../environments/environment';
 import { AuthService } from './shared/services/auth.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NotificationsService } from './shared/services/notifications.service';
 
 
 @NgModule({
@@ -30,13 +31,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FormsModule,
     RouterModule,
     ComponentsModule,
+    HttpClientModule,
     ExamplesModule,
     AppRoutingModule,
     NgxSpinnerModule,
     provideFirebaseApp(()=> initializeApp(environment.firebase)),
     provideAuth(()=> getAuth())
   ],
-  providers: [AuthService],
+  providers: [AuthService, NotificationsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

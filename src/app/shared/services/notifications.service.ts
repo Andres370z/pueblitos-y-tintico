@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 export class NotificationsService {
   UserData: any;
   constructor(
-    private auth: Auth,
+    private router: Router
   ) { }
 
   errorNotifi(title: string, info: string) {
@@ -18,5 +18,42 @@ export class NotificationsService {
       text: info,
     });
   }
-  
+  succesNotifi(info: string){
+    Swal.fire({
+      title: "En hora buena",
+      text: info,
+      icon: "success"
+    });
+  }
+  successfulRedirects(title: string,info: string, ruta: string){
+    Swal.fire({
+      icon: 'success',
+      title: title,
+      text: info,
+      // showDenyButton: true,
+      confirmButtonText: "Ok",
+      allowOutsideClick: false
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.router.navigate([ruta])
+      }
+    });
+  }
+  successErrorRedirects(title: string,info: string, ruta: string){
+    Swal.fire({
+      icon: 'error',
+      title: title,
+      text: info,
+      showDenyButton: true,
+      confirmButtonText: "Ok",
+      allowOutsideClick: false
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.router.navigate([ruta])
+      }
+    });
+  }
+
 }

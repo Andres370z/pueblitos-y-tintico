@@ -19,7 +19,8 @@ export class SignUpComponent implements OnInit {
     private fb: FormBuilder,
     private notificationsService: NotificationsService,
     private spinner: NgxSpinnerService,
-    public authService: AuthService
+    public authService: AuthService,
+    
   ) { }
 
   ngOnInit(): void {
@@ -28,9 +29,9 @@ export class SignUpComponent implements OnInit {
   }
   myForm() {
     this.userForm = this.fb.group({
-      email: ['preuba1@gmail.com', Validators.compose([Validators.required, Validators.email, Validators.minLength(5)])],
-      password: ['12345', Validators.compose([Validators.required, Validators.minLength(5)])],
-      name: ['jajaj', Validators.compose([Validators.required, Validators.minLength(3)])],
+      email: ['', Validators.compose([Validators.required, Validators.email, Validators.minLength(5)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
+      name: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
     })
   }
   onSubmit(form: any) {
@@ -38,13 +39,13 @@ export class SignUpComponent implements OnInit {
       console.log('Formulario valido');
       this.spinner.show();
       const data = {
-        // firstname: form.name,
+        firstname: form.name,
         email: form.email,
         password: form.password,
         // admin: true,
       }
       console.log('este es data ----->', data);
-      this.authService.Register(form.email, form.password).then((res: any)=>{
+      this.authService.Register(form.email, form.password, form.name).then((res: any)=>{
         console.log('este es res -> ', res)
       })
       setTimeout(() => {
@@ -59,5 +60,9 @@ export class SignUpComponent implements OnInit {
         this.notificationsService.errorNotifi('Error', 'La contraseña no es valida');
       }
     }
+  }
+  onSubmitGoogle(){
+    this.authService.googleAuth().then((res: any)=> {console.log('Succes google');
+    })
   }
 }

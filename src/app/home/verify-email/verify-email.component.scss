@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+label,
 h3 {
     color: #ffffff !important;
     font-family: Bebas Neue, serif !important;
     font-size: 2.825em !important;
-}
-label {
-    color: #ffffff !important;
-    font-family: Bebas Neue, serif !important;
+
 }
 .ale{
     display: flex;
@@ -21,7 +19,7 @@ label {
     /* Alto del botón (igual al ancho para hacerlo redondo) */
     border-radius: 50%;
     /* Hace que el botón sea circular */
-    background-color: #000000;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +27,20 @@ label {
     
 }
 .circle i {
-    margin-right: 5px;
+    margin-right: 0px;
     cursor: pointer;
+}
+
+.inform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.inform p {
+    color: #ffffff !important;
+    text-align: center !important;
+    font-weight: bold;
 }

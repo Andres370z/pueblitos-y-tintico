@@ -11,6 +11,12 @@ const routes: Routes = [
   },{
     path: 'register',
     loadChildren: () => import('./sign-up/sign-up.module').then(m => m.SignUpModule)
+  },{
+    path: 'verify-email',
+    loadChildren: () => import('./verify-email/verify-email.module').then(m => m.VerifyEmailModule)
+  },{
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   }
   
 ];

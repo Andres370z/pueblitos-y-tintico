@@ -14,8 +14,8 @@
 .form-control {
     // background-color: $white-bg;
     background-color: rgba(225, 206, 206, 0.4) !important;
-
-    ;
+    color: #ffffff;
+    font-weight: bold;
     // border: 1px solid $medium-gray;
     border: 1px solid #e6323c;
     border-radius: $border-radius-base;
@@ -130,6 +130,7 @@ textarea.form-control{
 }
 
 .register-form .form-control{
+    color: #ffffff;
     border: 1px solid transparent !important;
 }
 #inputs {

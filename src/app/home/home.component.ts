@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,11 @@ import { AuthService } from '../shared/services/auth.service';
 export class HomeComponent implements OnInit {
 
   constructor(
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    
+    this.spinner.hide();
   }
 
 }

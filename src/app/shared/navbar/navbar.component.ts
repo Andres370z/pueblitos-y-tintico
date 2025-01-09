@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AuthService } from './../services/auth.service';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-navbar',
@@ -10,7 +13,12 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element: ElementRef) {
+
+    constructor(
+        private router: Router,
+        public location: Location, private element: ElementRef, 
+        private authService: AuthService, private spinner: NgxSpinnerService,
+    ) {
         this.sidebarVisible = false;
     }
 
@@ -71,11 +79,19 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
-    isLoge(){
-        if (localStorage.getItem('isloged') == 'true') {
-            return true;
-        } else {
+    isLoge() {
+        if (localStorage.getItem('isLog') === 'true') {
+            return false;
+        } {
             return true;
         }
     }
+    islogout() {
+        this.sidebarClose();
+        this.spinner.show()
+        this.authService.logout()
+        localStorage.clear()
+        this.router.navigate(['pages'])
+    }
+
 }
