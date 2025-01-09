@@ -76,6 +76,72 @@
     }
 }
 
+.form-control-2 {
+    // background-color: $white-bg;
+    // background-color: rgba(46, 41, 41, 0.4) !important;
+    color: #000000;
+    font-weight:normal;
+    // border: 1px solid $medium-gray;
+    border: 1px solid #e6323c;
+    border-radius: $border-radius-base;
+    color: $font-color;
+    font-size: $font-size-base;
+    width: 100%;
+    @include input-size($padding-base-vertical, $padding-label-horizontal, $height-base);
+    @include box-shadow(none);
+    &:focus{
+           background-color: $white-bg;
+           border: 1px solid $dark-gray;
+           @include box-shadow(none);
+           outline: 0 !important;
+    }
+
+    &.no-border{
+        border: medium none !important;
+    }
+
+    .has-success &,
+    .has-error &,
+    .has-success &:focus,
+    .has-error &:focus{
+        @include box-shadow(none);
+    }
+
+    .has-success &{
+        border: 1px solid $table-line-color;
+        color: $font-color;
+    }
+    .has-success &:focus{
+        border: 1px solid $success-color;
+        color: $success-color;
+    }
+    .has-danger &{
+        background-color: $danger-input-bg;
+        border: 1px solid $danger-color;
+        color: $danger-color;
+    }
+    .has-danger &:focus{
+        background-color: $white-color;
+        border: 1px solid $danger-color;
+    }
+
+    & + .form-control-feedback{
+        border-radius: $border-radius-large;
+        font-size: $font-size-base;
+        color: $danger-color;
+        font-size: .8rem;
+        position: absolute;
+        top: 100%;
+        padding-left: $padding-label-horizontal;
+        vertical-align: middle;
+    }
+
+    .open &{
+        border-radius: $border-radius-base $border-radius-base 0 0;
+        border-bottom-color: transparent;
+    }
+}
+
 .input-lg{
     height: 55px;
     padding: $padding-large-vertical $padding-large-horizontal;
@@ -125,12 +191,20 @@ textarea.form-control{
     padding: 10px 18px;
     height: auto;
 }
+textarea.form-control-2{
+    padding: 10px 18px;
+    height: auto;
+}
 .form-group{
     position: relative;
 }
 
 .register-form .form-control{
     color: #ffffff;
+    border: 1px solid transparent !important;
+}
+.register-form-2 .form-control{
+    color: #ff0000;
     border: 1px solid transparent !important;
 }
 #inputs {
