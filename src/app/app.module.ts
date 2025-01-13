@@ -17,8 +17,9 @@ import { environment } from './../environments/environment';
 import { AuthService } from './shared/services/auth.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NotificationsService } from './shared/services/notifications.service';
-
-
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import {CloudinaryModule} from '@cloudinary/ng';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,10 +36,12 @@ import { NotificationsService } from './shared/services/notifications.service';
     ExamplesModule,
     AppRoutingModule,
     NgxSpinnerModule,
+    CloudinaryModule,
+    AngularFirestoreModule,
     provideFirebaseApp(()=> initializeApp(environment.firebase)),
     provideAuth(()=> getAuth())
   ],
-  providers: [AuthService, NotificationsService],
+  providers: [AuthService, NotificationsService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

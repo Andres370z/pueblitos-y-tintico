@@ -10,16 +10,10 @@
   </div>
   <div class="container">
     <div class="row">
-      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt assumenda magnam, unde
-        mollitia ut quis odio explicabo provident ullam, sunt adipisci cumque perferendis obcaecati dignissimos
-        distinctio iure dolor placeat dolorem!
-        Blanditiis rerum deserunt enim neque cumque? Veniam, quos? Delectus voluptas eaque explicabo nulla vero ducimus
-        nihil rem. Autem beatae voluptate quas fuga pariatur esse impedit sed, corrupti corporis, est magnam!
-        Aliquid dignissimos repellat perferendis beatae est, nostrum, repellendus harum voluptas distinctio odit
-        accusantium odio velit natus! Repellendus, aspernatur eaque non ea expedita suscipit soluta molestias, quaerat
-        dolor alias eos corrupti.
-        </p>
-        <img src="./../../assets/img/cascada.jpg" alt="" class="img-thumbnail img-responsive">
+      <p class="description">
+        Todos los sueños nacen en lugares que uno nunca imagina, en rincones ocultos de nuestro corazón donde el deseo de aventura y exploración comienza a crecer. Cada meta tiene su razón de ser, su objetivo que se quiere alcanzar, y cada misión espera ser cumplida por alguien decidido, un verdadero gladiador dispuesto a superar cualquier desafío. Así como el corcel espera pacientemente a su caballero, mi Pulsar RS 200 aguarda por mí, lista para llevarme a través de los pueblitos más hermosos y, quizás, peligrosos de Colombia.
+      </p>
+      <img src="./../../assets/img/acelasensumoto2.jpeg" alt="" class="img-thumbnail img-responsive">
     </div>
   </div>
 </div>
@@ -31,16 +25,24 @@
   </div>
   <div class="container">
     <div class="row">
-      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt assumenda magnam, unde
-        mollitia ut quis odio explicabo provident ullam, sunt adipisci cumque perferendis obcaecati dignissimos
-        distinctio iure dolor placeat dolorem!
-        Blanditiis rerum deserunt enim neque cumque? Veniam, quos? Delectus voluptas eaque explicabo nulla vero ducimus
-        nihil rem. Autem beatae voluptate quas fuga pariatur esse impedit sed, corrupti corporis, est magnam!
-        Aliquid dignissimos repellat perferendis beatae est, nostrum, repellendus harum voluptas distinctio odit
-        accusantium odio velit natus! Repellendus, aspernatur eaque non ea expedita suscipit soluta molestias, quaerat
-        dolor alias eos corrupti.
-        </p>
-        <img src="./../../assets/img/poli.jpeg" alt="" class="img-thumbnail img-responsive">
+      <p class="description">Mi meta es llegar al mar, pero no de cualquier manera. Quiero que esta travesía sea más que solo un viaje. Cada kilómetro recorrido, cada curva tomada, cada paisaje que se despliega ante mis ojos, es una oportunidad para conocer más de nuestro país, para admirar su belleza en todo su esplendor. Parto desde la ciudad de Fusagasuga, desde los tranquilos pueblos enclavados en las montañas, hasta los vibrantes rincones de la costa, todo forma parte de esta travesía. Y mientras recorro Colombia, tomando un tintico en cada parada, me doy cuenta de que lo más hermoso de este viaje no es solo el destino, sino cada momento vivido en el camino.
+      </p>
+      <img src="./../../assets/img/poli.jpeg" alt="" class="img-thumbnail img-responsive">
     </div>
   </div>
+</div>
+
+
+<div class="container tim-container" *ngFor="let place of places">
+  <div class="myTitles">
+    <h3> {{place.title}} </h3>
+  </div>
+  <div class="container">
+    <div class="row">
+      <p class="description">{{place.description}}</p>
+      <img src="{{place.imagen}}" alt="" class="img-thumbnail img-responsive">
+    </div>
+  </div>
+  <div class="responsive-divider"></div>
+
 </div>

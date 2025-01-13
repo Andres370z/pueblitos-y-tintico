@@ -12,14 +12,14 @@
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 
 
-                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" formControlName="email">
+                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" formControlName="email" autocomplete="new-email">
               </div>
 
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 
-                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true"
-                  (blur)="focus1=false" formControlName="password">
+                <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false" formControlName="password" autocomplete="new-password">
               </div>
               <button class="btn btn-danger btn-block btn-round" type="submit">Inicia sesión</button>
             </form>

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CloudinaryModule } from '@cloudinary/ng';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CloudinaryModule,
+    NgxSpinnerModule
   ]
 })
 export class DashboardModule { }

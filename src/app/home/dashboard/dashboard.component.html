@@ -28,10 +28,8 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-4">
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt assumenda magnam,
-            unde
-            mollitia ut quis odio explicabo provident ullam, sunt adipisci cumque perferendis obcaecati dignissimos
-            distinctio iure dolor placeat dolorem!
+          <p class="description">
+            En este formulario, debes completar varios campos para contar tu aventura. Primero, debes escribir un título que resuma brevemente tu viaje. Luego, en el campo de descripción, puedes detallar tu experiencia, narrando lo que viviste, viste y sentiste durante la travesía. Además, tienes la opción de subir una imagen que acompañe su relato, lo que te permitirá compartir visualmente un momento destacado de tu aventura. Finalmente, una vez que hayas completado estos campos, debes hacer clic en el botón "Guardar Viaje" para enviar el formulario y registrar tu historia.
           </p>
         </div>
 
@@ -47,12 +45,25 @@
               </div>
 
               <label>Descripcion</label>
-              <div class="input-group form-group-no-border " [ngClass]="{'input-group-focus':focus1===true}">
+              <div class="input-group form-group-no-border mb-4" [ngClass]="{'input-group-focus':focus1===true}">
 
                 <textarea type="text" class="form-control-2" rows="8" placeholder="Añade una descripcion de tu aventura"
                   (focus)="focus1=true" (blur)="focus1=false" formControlName="descripcion"></textarea>
               </div>
+              <label>Subir imagen</label>
+              <div class="input-group form-group-no-border mb-4" [ngClass]="{'input-group-focus':focus===true}">
+
+
+                <input type="file" class="form-control-2" placeholder="Agrega un titulo a tu viaje" (focus)="focus=true"
+                  (blur)="focus=false" (change)="onSelect($event)" accept="image/*" >
+              </div>
+              
+
+              <div class="images">
+                <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen Previsualizada" />
+              </div>
               <button class="btn btn-danger btn-block btn-round mt-5" type="submit">Guardar Viaje</button>
+              <!-- <button class="btn btn-danger btn-block btn-round mt-5" type="button" (click)="upload()">Subir imagen</button> -->
             </form>
           </div>
 
@@ -61,3 +72,7 @@
     </div>
   </div>
 </div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white"> Un momento... </p>
+</ngx-spinner>

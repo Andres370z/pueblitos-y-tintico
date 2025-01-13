@@ -1,0 +1,20 @@
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images img {
+    width: 100%;
+    max-width: 300px;
+
+}
+
+@media (max-width: 768px) {
+
+    /* Pantallas pequeñas (tablets y móviles) */
+    .images img {
+        max-width: 100px;
+        /* La imagen ocupa el 80% del ancho del contenedor */
+    }
+}
