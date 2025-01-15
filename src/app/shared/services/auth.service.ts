@@ -116,10 +116,11 @@ export class AuthService {
   }
 
   logout() {
-    signOut(this.auth).then(() =>
-      console.log('Logout Funcionado')
+    signOut(this.auth).then(() => {
+      console.log('cierra sesion funcionando');
+      window.location.reload();
+    })
       // this.router.navigate(['/sign-in'])
-    );
   }
 
   reload(){

@@ -20,11 +20,8 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private alertService: NotificationsService
   ) {
-    if (localStorage.getItem('isLog') === 'false') {
-      this.spinner.hide(); 
-
-    } {
-    }
+    
+    
   }
 
   ngOnInit(): void {
@@ -41,7 +38,7 @@ export class HomeComponent implements OnInit {
       }, 5000);
       console.log('Estos son tus datos: ---->', res);
       this.places = res
-    }, (error: any)=>{
+    }, (error: any) => {
       this.spinner.hide();
       this.alertService.errorNotifi('Ups', 'No logre cargar la info. Vuelve mas tarde')
     })
@@ -90,10 +87,10 @@ export class HomeComponent implements OnInit {
   }
 
 
-  optionsAdmin(){
+  optionsAdmin() {
     if (this.userDta !== null) {
       return true;
-    } else{
+    } else {
       return false
     }
   }

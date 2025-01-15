@@ -91,8 +91,7 @@ export class NavbarComponent implements OnInit {
         this.spinner.show()
         this.authService.logout()
         localStorage.clear()
-        window.location.reload();
-        this.router.navigate(['pages'])
+        this.router.navigate(['pages']);
     }
 
 }

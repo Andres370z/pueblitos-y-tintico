@@ -92,7 +92,7 @@ export class UpdatePlaceComponent implements OnInit {
         this._placeService.updatePlace(this.placeDta.id ,lugar).then((res: any) => {
           console.log(res);
         });
-        this.notificationsService.successfulRedirects('Lugar creado', 'revisa que este en el home', 'pages')
+        this.notificationsService.successfulRedirects('Viaje editado', 'revisa que este en el home', 'pages')
       } catch (error) {
         console.log('error --->', error);
         this.notificationsService.errorNotifi('Ups', 'Error en el envio')
