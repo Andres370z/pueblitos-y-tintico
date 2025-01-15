@@ -33,7 +33,7 @@
 </div>
 
 
-<div class="container tim-container" *ngFor="let place of places">
+<div class="container tim-container" *ngFor="let place of places; let i = index">
   <div class="myTitles">
     <h3> {{place.title}} </h3>
   </div>
@@ -41,6 +41,14 @@
     <div class="row">
       <p class="description">{{place.description}}</p>
       <img src="{{place.imagen}}" alt="" class="img-thumbnail img-responsive">
+    </div>
+    <div class="ale" *ngIf="optionsAdmin()">
+      <a class="circle" (click)="editPlace(place)">
+        <i class="fa fa-pencil" style="font-size: 20px; color: #ffffff; text-align: center;"></i>
+      </a>
+      <a class="circle ml-2" (click)="deletePlace(place.id, place.title)">
+        <i class="fa fa-times" style="font-size: 20px; color: #ffffff; text-align: center;"></i>
+      </a>
     </div>
   </div>
   <div class="responsive-divider"></div>

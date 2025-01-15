@@ -6,11 +6,11 @@ import { PlacesService } from './../../shared/services/places.service';
 import { NotificationsService } from './../../shared/services/notifications.service';
 import { Lugares } from './../../shared/services/places.service';
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-update-place',
+  templateUrl: './update-place.component.html',
+  styleUrls: ['./update-place.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class UpdatePlaceComponent implements OnInit {
   page = 4;
   page1 = 5;
   focus;
@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   public previewUrl: string | ArrayBuffer | null = null;
   public imageUrl: any
   public userDta: any;
+  public placeDta: any;
+
   constructor(
     private renderer: Renderer2,
     private fb: FormBuilder,
@@ -43,6 +45,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userDta = JSON.parse(localStorage.getItem('user'));
+    this.placeDta = JSON.parse(localStorage.getItem('place-edit'));
+    if (this.placeDta) {
+      console.log('Ok', this.placeDta);
+      this.imageUrl = this.placeDta.imagen;
+      this.urlFinalImage = this.imageUrl;
+    }else {
+      this.notificationsService.errorNotifi('Ups', 'Parce escribame porque esto se jodio')
+    }
+
+    
 
     let input_group_focus = document.getElementsByClassName('form-control');
     let input_group = document.getElementsByClassName('input-group');
@@ -62,8 +74,8 @@ export class DashboardComponent implements OnInit {
 
   myForm() {
     this.userForm = this.fb.group({
-      title: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
-      descripcion: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
+      title: [this.placeDta.title , Validators.compose([Validators.required, Validators.minLength(5)])],
+      descripcion: [this.placeDta.description, Validators.compose([Validators.required, Validators.minLength(5)])],
       image: [Validators.compose([Validators.required])]
     })
   }
@@ -77,7 +89,7 @@ export class DashboardComponent implements OnInit {
           description: descripcion,
           imagen: this.urlFinalImage
         }
-        this._placeService.create(lugar).then((res: any) => {
+        this._placeService.updatePlace(this.placeDta.id ,lugar).then((res: any) => {
           console.log(res);
         });
         this.notificationsService.successfulRedirects('Lugar creado', 'revisa que este en el home', 'pages')
@@ -141,28 +153,6 @@ export class DashboardComponent implements OnInit {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1)
   }
-
-  // upload() {
-  //   if (this.files.length === 0) return console.log('Ni entra');
-  //   const file_data = this.files[0];
-  //   const data = new FormData();
-  //   data.append('file', file_data);
-  //   data.append('upload_preset', 'pueblitos-y-tintico');
-  //   data.append('cloud_name', 'da4si8eaz');
-
-  //   this._placeService.uploadImages(data).subscribe(
-  //     {
-  //       next: (response: any) => { 
-  //         console.log(response);
-  //         alert('bien')
-  //       },
-  //       error: (e: any) => { console.log('daño ', e);
-  //       }
-  //     }
-  //   )
-  //   return true;
-  // }
-
 
 
 }

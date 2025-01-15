@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.myTitles h3 {
+.myTitles h4, h3, h1 {
     font-family: Bebas Neue, serif;
     font-weight: 400;
     line-height: 44px;
@@ -28,29 +28,7 @@
     max-width: 300px;
 
 }
-.ale{
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-}
-.circle {
-    width: 35px;
-    /* Ancho del botón */
-    height: 35px;
-    /* Alto del botón (igual al ancho para hacerlo redondo) */
-    border-radius: 50%;
-    /* Hace que el botón sea circular */
-    background-color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    
-}
-.circle i {
-    // margin-right: 5px;
-    cursor: pointer;
-}
+
 @media (max-width: 768px) {
 
     /* Pantallas pequeñas (tablets y móviles) */
@@ -58,4 +36,9 @@
         max-width: 100px;
         /* La imagen ocupa el 80% del ancho del contenedor */
     }
+}
+
+
+.content-1 {
+    margin-top: 20px;
 }

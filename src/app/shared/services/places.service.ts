@@ -74,4 +74,12 @@ export class PlacesService {
       console.log('Se jodio esta vaina', error);
     }
   }
+
+  updatePlace(idPlae: any, place: any){
+    return this._firestore.collection(PATH).doc(idPlae).update(place);
+  }
+
+  deletePlace(idPlace: string){
+    return this._firestore.collection(PATH).doc(idPlace).delete();
+  } 
 }

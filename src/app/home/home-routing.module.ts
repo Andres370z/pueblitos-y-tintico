@@ -17,6 +17,9 @@ const routes: Routes = [
   },{
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },{
+    path: 'edit-place',
+    loadChildren: () => import('./update-place/update-place.module').then(m => m.UpdatePlaceModule)
   }
   
 ];
